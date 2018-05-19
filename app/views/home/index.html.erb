@@ -1,0 +1,22 @@
+<div class="max-w-sm rounded overflow-hidden shadow-lg mx-auto mt-8">
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Link Shortener</div>
+    <p class="text-grey-darker text-base">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+    </p>
+  </div>
+
+
+  <%= form_with model: @form, url: redirects_path, method: :post, scope: :redirect, class: "rounded px-8 pt-6 pb-8 mb-4", data: { remote: false } do |f| %>
+
+    <div class="inline fields" style="margin-bottom: 0">
+      <!-- <div class="field"> -->
+        <%= f.text_field :url, value: @form.url, placeholder: "URL to be shortened", class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker", style: "width: 300px;" %>
+      <!-- </div> -->
+
+      <%= submit_tag "Create", class: "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+
+</div>
