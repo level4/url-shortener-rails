@@ -12,8 +12,8 @@ class CreateRedirectForm
   def process
     normalize_url
     if valid?
-      Redirect.create!(url: url)
-      Right(nil)
+      result = Redirect.create!(url: url)
+      Right(result)
     else
       Left(errors)
     end

@@ -5,7 +5,7 @@ class RedirectsController < ApplicationController
 
     res = @form.process
     if res.success?
-      render :show
+      redirect_to redirect_path(res.value.id)
     else
       flash[:error] = "Invalid URL"
       render :new

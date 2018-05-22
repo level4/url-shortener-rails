@@ -1,1 +1,11 @@
-<p>success!</p>
+<div class="max-w-sm rounded overflow-hidden shadow-lg mx-auto mt-8">
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Link Shortener</div>
+    <p class="text-grey-darker text-base">
+      Thanks!
+      Your URL for <%= link_to @redirect.url, @redirect.url %> is <%= link_to @redirect.short_url, @redirect.short_url %>
+    </p>
+  </div>
+
+</div>
