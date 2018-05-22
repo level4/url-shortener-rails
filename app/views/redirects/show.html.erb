@@ -6,6 +6,9 @@
       Thanks!
       Your URL for <%= link_to @redirect.url, @redirect.url %> is <%= link_to @redirect.short_url, @redirect.short_url %>
     </p>
+    <p class="text-grey-darker text-base">
+      <%= link_to "Create another", new_redirect_path %>
+    </p>
   </div>
 
 </div>
