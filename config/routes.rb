@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :redirects, only: [:create, :show]
+  resources :redirects, only: [:create, :show, :new, :index]
+
+  get "r/:id", controller: :request, action: :show
 
 end

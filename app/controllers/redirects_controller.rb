@@ -3,18 +3,32 @@ class RedirectsController < ApplicationController
   def create
     @form = CreateRedirectForm.new(create_params)
 
-    @form.process
-    render :show
+    res = @form.process
+    if res.success?
+      render :show
+    else
+      flash[:error] = "Invalid URL"
+      render :new
+    end
   end
 
   def show
+    @redirect = Redirect.find(params[:id])
+  end
 
+  def new
+    @form ||= CreateRedirectForm.new
+  end
+
+  def index
+    @form ||= CreateRedirectForm.new
+    render :new
   end
 
   protected
 
   def create_params
-    params.permit(:redirect)
+    params.require(:redirect).permit(:url)
   end
 
 end
