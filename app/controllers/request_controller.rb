@@ -9,7 +9,7 @@ class RequestController < ApplicationController
       redirect_id: lookup.id,
       referrer: request.referer,
       user_agent: request.user_agent,
-      id: request.remote_ip
+      ip: request.remote_ip
     )
 
     redirect_to lookup.url
