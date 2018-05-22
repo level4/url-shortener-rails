@@ -7,8 +7,8 @@ class CreateRedirectForm
   attr_accessor :url
 
   validates :url, presence: true
-  validate  :validate_url
   validate  :normalize_url
+  validate  :validate_url
 
   def process
     if valid?
@@ -36,6 +36,7 @@ class CreateRedirectForm
   def validate_url
     parsed_url = URI.parse(url)
     errors.add(:url, "Invalid URL") if parsed_url.host.nil?
+    errors.add(:url, "Invalid URL") unless url =~ URI::regexp
   rescue URI::InvalidURIError
     errors.add(:url, "Invalid URL")
   end
