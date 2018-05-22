@@ -6,6 +6,14 @@ To run:
 * bundle install
 * bundle exec rails server
 
+Live site:
+
+https://url-shortenifier.herokuapp.com/
+
+API path:
+
+https://url-shortenifier.herokuapp.com/api/redirects
+
 # Notes
 
 * I have used a couple of different patterns in this project in the hope of provoking conversation. I am not much of a fan of using exceptions for control flow, so I've implemented CreateRedirectForm in more of a "service" pattern using monads for explicit error handling. I've had good experience with this pattern and think it improves modularity and reusability. Elsewhere, however, I have created objects directly in the controller
@@ -31,4 +39,6 @@ While I believe I've ticked the boxes for the coding test, there are many improv
 - the tests, while somewhat adequate, could be improved and better organised
 - user authentication, naturally
 - I am not a fan of presentation logic in models, eg ```Redirect#short_url```. I like to move this kind of thing to presenters and would do so if it became more complex
+- pagination in the API section
+
 
