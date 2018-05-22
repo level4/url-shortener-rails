@@ -11,14 +11,9 @@ module UrlShortener
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-
-    config.autoload_paths += %W(
-      lib
-      lib/**/
-      serializers
-      ).map do |segment|
-      "#{config.root}/#{segment}"
-    end
+    load_path_strategy = Rails.env.production? ? :eager_load_paths : :autoload_paths
+    config.public_send(load_path_strategy) << Rails.root.join('lib')
+    config.public_send(load_path_strategy) << Rails.root.join('serializers')
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
