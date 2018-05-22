@@ -15,6 +15,7 @@ module UrlShortener
     config.autoload_paths += %W(
       lib
       lib/**/
+      serializers
       ).map do |segment|
       "#{config.root}/#{segment}"
     end

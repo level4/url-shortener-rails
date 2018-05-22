@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   get "r/:id", controller: :request, action: :show
 
+  namespace :api do
+    resources :redirects, only: [:index, :show] do
+      resources :visits, only: [:index]
+    end
+  end
+
 end
