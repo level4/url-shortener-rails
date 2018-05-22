@@ -8,9 +8,9 @@ class CreateRedirectForm
 
   validates :url, presence: true
   validate  :validate_url
+  validate  :normalize_url
 
   def process
-    normalize_url
     if valid?
       result = Redirect.create!(url: url)
       Right(result)

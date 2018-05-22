@@ -6,7 +6,7 @@ RSpec.describe RequestController, type: :controller do
   let(:redirect) { Redirect.create(url: "http://google.com") }
 
   it "should redirect on successful lookup" do
-    expect(Redirect).to receive(:find_by_code).with(anything) { Right(redirect) }
+    expect(Redirect).to receive(:find_by_code).with(anything) { redirect }
     get :show, params: {id: redirect.short_url}
     expect(response.status).to eq(302)
   end

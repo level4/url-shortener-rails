@@ -27,6 +27,11 @@ describe CreateRedirectForm do
       expect(object.url).to eq("http://hello-kitty.com/")
     end
 
+    it "validates URL viability" do
+      object = klass.new(url: "2")
+      expect(object.valid?).to eq(false)
+    end
+
   end
 
 end
