@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_101530) do
+ActiveRecord::Schema.define(version: 2018_05_22_082941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 2018_05_21_101530) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.bigint "url_id"
+    t.bigint "redirect_id"
     t.string "referrer"
     t.string "user_agent"
     t.inet "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["url_id"], name: "index_visits_on_url_id"
+    t.index ["redirect_id"], name: "index_visits_on_redirect_id"
   end
 
 end

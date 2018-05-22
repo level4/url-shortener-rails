@@ -1,6 +1,8 @@
 class Redirect < ApplicationRecord
   include Dry::Monads::Either::Mixin
 
+  has_many :visits
+
   def self.find_by_code(code)
     id = Base62.short_to_id(code)
     find(id)
