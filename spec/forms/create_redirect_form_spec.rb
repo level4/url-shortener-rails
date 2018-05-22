@@ -32,6 +32,19 @@ describe CreateRedirectForm do
       expect(object.valid?).to eq(false)
     end
 
+    it "adds trailing slash to URL if missing" do
+      object = klass.new(url: "hello-kitty.com")
+      object.normalize_url
+      expect(object.url).to eq("http://hello-kitty.com/")
+      expect(object.valid?).to eq(true)
+    end
+
+    it "honours full paths" do
+      object = klass.new(url: "http://hello-kitty.com/yes")
+      object.normalize_url
+      expect(object.url).to eq("http://hello-kitty.com/yes")
+    end
+
   end
 
 end
