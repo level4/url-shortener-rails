@@ -18,4 +18,10 @@ RSpec.describe RequestController, type: :controller do
     # expect(response.status).to eq(404)
   end
 
+  it "should record a Visit on successful lookup" do
+    expect{
+      get :show, params: {id: redirect.short_code}
+    }.to change{Visit.count}.by(1)
+  end
+
 end

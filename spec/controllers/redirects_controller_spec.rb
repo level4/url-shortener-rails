@@ -20,7 +20,6 @@ RSpec.describe RedirectsController, type: :controller do
     it "should not create a new redirect with an invalid URL" do
       expect{
         post :create, params: invalid_params
-        # puts Redirect.first.url
       }.to change{Redirect.count}.by(0)
     end
 

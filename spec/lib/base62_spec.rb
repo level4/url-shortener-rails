@@ -12,7 +12,6 @@ RSpec.describe Base62 do
     it "should correctly turn a shortcode back into an int ID" do
       expect(Base62.short_to_id("GI")).to eq(10)
     end
-
   end
 
 end

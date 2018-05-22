@@ -7,7 +7,11 @@ class Redirect < ApplicationRecord
   end
 
   def short_url
-    Rails.configuration.x.base_url + 'r/' + Base62.id_to_short(id)
+    Rails.configuration.x.base_url + 'r/' + short_code
+  end
+
+  def short_code
+    Base62.id_to_short(id)
   end
 
 end
