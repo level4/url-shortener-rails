@@ -1,7 +1,7 @@
 class SerializableVisit < JSONAPI::Serializable::Resource
   type 'visits'
 
-  attributes :ip, :referrer, :user_agent
+  attributes :ip, :referrer, :user_agent, :headers
 
   belongs_to :redirect do
     link :self do

@@ -35,10 +35,12 @@ https://url-shortenifier.herokuapp.com/api/redirects
 
 While I believe I've ticked the boxes for the coding test, there are many improvements to be made before I would consider this production quality.
 
-- URL parsing could use a lot of improvement
+- URL parsing could use a lot of improvement. Perhaps implement this regex-based approach: https://gist.github.com/dperini/729294
 - the tests, while somewhat adequate, could be improved and better organised
 - user authentication, naturally
 - I am not a fan of presentation logic in models, eg ```Redirect#short_url```. I like to move this kind of thing to presenters and would do so if it became more complex
 - pagination in the API section
+- filter headers collected in visits - current saving *all* of them
+- possibly add forwarded-for
 
 
