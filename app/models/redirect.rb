@@ -3,6 +3,8 @@ class Redirect < ApplicationRecord
 
   has_many :visits
 
+  scope :newest_first, -> { order("id desc") }
+
   def self.find_by_code(code)
     id = Base62.short_to_id(code)
     find(id)
